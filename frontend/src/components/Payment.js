@@ -52,7 +52,7 @@ const Payment = () => {
   const fetchQRCode = async (totalPrice) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/payment?amount=${encodeURIComponent(
+        `https://skyway-airlines.onrender.com/api/payment?amount=${encodeURIComponent(
           totalPrice
         )}`
       );
@@ -72,7 +72,7 @@ const Payment = () => {
 
   const handlePaymentComplete = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/booking", {
+      const response = await fetch("https://skyway-airlines.onrender.com/api/booking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
