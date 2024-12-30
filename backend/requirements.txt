@@ -1,0 +1,11 @@
+flask 
+flask_cors
+random
+string
+io  
+base64
+pymongo 
+qrcode
+PIL  
+pdfgen 
+datetime

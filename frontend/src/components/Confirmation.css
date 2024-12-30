@@ -1,0 +1,122 @@
+/* Confirmation.css */
+.confirmation-page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.confirmation-main-content {
+  padding-top: 20px;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flight-confirmation-wrapper {
+  max-width: 800px;
+  min-height: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flight-confirmation-title {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.flight-confirmation-message {
+  color: #34495e;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.flight-download-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.flight-download-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.flight-spinner-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  margin: 2rem auto;
+}
+
+.flight-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: flight-spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+.flight-waiting-text {
+  color: #7f8c8d;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+@keyframes flight-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .flight-confirmation-wrapper {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .flight-confirmation-title {
+    font-size: 1.5rem;
+  }
+
+  .flight-confirmation-message {
+    font-size: 1rem;
+  }
+
+  .confirmation-navbar {
+    padding: 1rem;
+  }
+
+  .confirmation-nav-brand {
+    font-size: 1.2rem;
+    padding-left: 5px;
+  }
+
+  .confirmation-logout-btn {
+    margin-left: -10px; 
+  }
+}
