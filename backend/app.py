@@ -202,4 +202,4 @@ def generate_upi_qr():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", PORT=5555)
+    app.run(debug=True, host="0.0.0.0", port=5555)
