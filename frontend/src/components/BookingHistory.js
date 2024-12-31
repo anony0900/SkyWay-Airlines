@@ -15,7 +15,7 @@ const BookingHistory = () => {
 
   const fetchBookingHistory = async () => {
     try {
-      const response = await fetch('https://skyway-airlines.onrender.com/api/bookinghistory');
+      const response = await fetch('https://flight-backend-1fjz.onrender.com/api/bookinghistory');
       // const response = await fetch('http://127.0.0.1:5000/api/bookinghistory');
       const data = await response.json();
       setBookings(data);

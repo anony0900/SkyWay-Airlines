@@ -57,7 +57,7 @@ const Login = () => {
   const fetchCaptcha = async () => {
     setIsLoadingCaptcha(true);
     try {
-      const response = await fetch("https://skyway-airlines.onrender.com/api/get-captcha");
+      const response = await fetch("https://flight-backend-1fjz.onrender.com/api/get-captcha");
       // const response = await fetch("http://127.0.0.1:5000/api/get-captcha");
       const data = await response.json();
       setCaptchaImage(data.captcha_image);
@@ -100,7 +100,7 @@ const Login = () => {
 
     try {
       const endpoint = isLogin ? "/api/login" : "/api/signup";
-      const response = await fetch(`https://skyway-airlines.onrender.com${endpoint}`, {
+      const response = await fetch(`https://flight-backend-1fjz.onrender.com${endpoint}`, {
       // const response = await fetch(`http://127.0.0.1:5000/${endpoint}`, {
         method: "POST",
         headers: {

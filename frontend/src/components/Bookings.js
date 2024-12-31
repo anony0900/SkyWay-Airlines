@@ -58,7 +58,7 @@ const Bookings = () => {
       });
 
       const response = await fetch(
-        `https://api.aviationstack.com/v1/flights?${queryParams}`,
+        `https://flight-backend-1fjz.onrender.com/v1/flights?${queryParams}`,
         {
           method: "GET",
           headers: {
