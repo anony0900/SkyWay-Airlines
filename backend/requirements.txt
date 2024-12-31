@@ -1,11 +1,6 @@
-flask 
-flask_cors
-random
-string
-io  
-base64
-pymongo 
-qrcode
-PIL  
-pdfgen 
-datetime
+Flask==3.1.0
+Flask-Cors==5.0.0
+pymongo==4.5.0
+qrcode==7.4.0
+Pillow==10.0.0
+reportlab==4.0.0
