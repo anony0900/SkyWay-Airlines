@@ -58,7 +58,7 @@ const Bookings = () => {
       });
 
       const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.aviationstack.com/v1/flights?${queryParams}`,
+        `https://api.aviationstack.com/v1/flights?${queryParams}`,
         {
           method: "GET",
           headers: {
