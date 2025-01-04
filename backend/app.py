@@ -16,6 +16,7 @@ from datetime import datetime
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
+
 app.secret_key = 'b6836a1669abaf1b5eebade4443489d5'
 uri = "mongodb+srv://anony:atlas@cluster0.f18iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
@@ -26,8 +27,9 @@ db = client["airline"]
 collection1 = db["customers"]
 collection2 = db["bookings"]
 
+
 # Function to generate random alphanumeric string
-def generate_captcha_text(length=6):
+def generate_captcha_text(length=5):
     characters = string.ascii_letters + string.digits
     return ''.join(random.choice(characters) for _ in range(length))
 
@@ -202,4 +204,4 @@ def generate_upi_qr():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port=5555)
+    app.run(debug=True, host="0.0.0.0", port=5000)

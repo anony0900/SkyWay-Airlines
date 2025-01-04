@@ -58,20 +58,25 @@ const Bookings = () => {
       });
 
       const response = await fetch(
-        `https://flight-backend-1fjz.onrender.com/v1/flights?${queryParams}`,
+        // `https://flight-backend-1fjz.onrender.com/v1/flights?${queryParams}`,
+        `https://cors-anywhere.herokuapp.com/https://api.aviationstack.com/v1/flights?${queryParams}`,
         {
           method: "GET",
+          // mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
 
+      console.log("Response:", response);
+
       if (!response.ok) {
         throw new Error("Failed to fetch flights");
       }
 
       const data = await response.json();
+      console.log("API Response:", data);
 
       // Transform the API response to match your component's expected format
       const transformedFlights = data.data.map((flight) => ({
