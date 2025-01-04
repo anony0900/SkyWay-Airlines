@@ -1,5 +1,5 @@
 // AirlineHome.js
-import React from "react";
+import React, { use, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AirlineHome.css";
 
@@ -8,6 +8,7 @@ const AirlineHome = () => {
 
   const handleLogout = () => {
     // Add any logout logic here (clearing tokens, etc.)
+    localStorage.removeItem('token');
     navigate("/");
   };
 

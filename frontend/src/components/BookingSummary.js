@@ -33,7 +33,7 @@ const BookingSummary = () => {
 
       try {
         const baseAmount = basePrice.domestic;
-        const classType = bookingData.classtype.toLowerCase();
+        const classType = passengerInfo.classtype.toLowerCase();
         if (!classMultiplier[classType]) {
           throw new Error("Invalid class type");
         }
@@ -50,7 +50,7 @@ const BookingSummary = () => {
       }
     }
   }, [location]);
-
+  
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
     navigate("/payment", {

@@ -124,7 +124,8 @@ const Login = () => {
       console.log("Response data:", data);
 
       // Explicitly check if login/signup succeeded based on the backend's response
-      if (response.ok && data.message === "User logged in successfully") {
+      if (response.ok && (data.message === "User logged in successfully" || data.message === "User registered successfully")) {
+        localStorage.setItem('token', data.token);
         setFormData({
           email: "",
           password: "",

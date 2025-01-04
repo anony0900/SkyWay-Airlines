@@ -29,7 +29,7 @@ collection2 = db["bookings"]
 
 
 # Function to generate random alphanumeric string
-def generate_captcha_text(length=5):
+def generate_captcha_text(length=6):
     characters = string.ascii_letters + string.digits
     return ''.join(random.choice(characters) for _ in range(length))
 
@@ -87,7 +87,8 @@ def login():
         user = collection1.find_one({'email': email, 'password': password})
 
         if user:
-            return jsonify({'message': 'User logged in successfully'})
+            return jsonify({'message': 'User logged in successfully',
+            'token:': "asdf1245bm"})
         else:
             return jsonify({'message': 'User login failed'})
 
@@ -108,7 +109,8 @@ def signup():
 
     try:
         collection1.insert_one({'name': name, 'email': email, 'password': password})
-        return jsonify({'message': 'User registered successfully'})
+        return jsonify({'message': 'User registered successfully',
+        'token:': "asdf1245bm"})
 
     except errors.ConnectionFailure:
         return "Error: Unable to connect to the database."

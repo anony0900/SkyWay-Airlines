@@ -10,7 +10,10 @@ const BookingConfirmation = () => {
     fullname: "",
     email: "",
     phone: "",
+    classtype: "",
   });
+  console.log("Booking Details:", bookingDetails);
+
 
   useEffect(() => {
     console.log("Location State:", location.state);
@@ -46,7 +49,6 @@ const BookingConfirmation = () => {
         flightDetails: bookingDetails,
         passengerInfo: passengerDetails,
         bookingDate: new Date().toISOString(),
-        classtype: passengerDetails.classtype,
       };
       // console.log("Booking data with class:", bookingData);
 
