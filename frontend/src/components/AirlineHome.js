@@ -82,14 +82,23 @@ const AirlineHome = () => {
             <div className="card">
               <h3>Paris</h3>
               <p>Explore the city of love</p>
+              <a href="https://en.wikipedia.org/wiki/Paris" style={{ cursor: "pointer" }} className="click-btn"
+              target="_blank"
+              >Click to Explore</a>
             </div>
             <div className="card">
               <h3>New York</h3>
               <p>The city that never sleeps</p>
+              <a href="https://en.wikipedia.org/wiki/New York" style={{ cursor: "pointer" }} className="click-btn"
+              target="_blank"
+              >Click to Explore</a>
             </div>
             <div className="card">
               <h3>Tokyo</h3>
               <p>Experience modern Japan</p>
+              <a href="https://en.wikipedia.org/wiki/Tokyo" style={{ cursor: "pointer" }} className="click-btn"
+              target="_blank"
+              >Click to Explore</a>
             </div>
           </div>
         </div>

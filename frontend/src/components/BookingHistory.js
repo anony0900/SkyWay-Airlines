@@ -52,6 +52,9 @@ const BookingHistory = () => {
   const handleBack = () => {
     navigate("/airline-home");
   };
+  const handleBook = () => {
+    navigate("/bookings");
+  };
 
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">{error}</div>;
@@ -69,7 +72,13 @@ const BookingHistory = () => {
         <h1>My Booking History</h1>
         <div className="bookings-container">
           {bookings.length === 0 ? (
-            <p className="no-bookings">No bookings yet</p> 
+            <>
+            <div className="no-bookings">
+            <p >No bookings yet!</p>
+            <p > Hurry Up & Book now!!!</p> 
+            <button onClick={handleBook} className="book-btn">Book Now</button>
+            </div>
+            </>
           ) : (
             bookings.map((booking, index) => (
               <div key={index} className="booking-card">
