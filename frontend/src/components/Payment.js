@@ -76,8 +76,10 @@ const Payment = () => {
 
     const alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    const alpha1 = alphanumeric[Math.floor(Math.random() * alphanumeric.length)];
-    const alpha2 = alphanumeric[Math.floor(Math.random() * alphanumeric.length)];
+    const alpha1 =
+      alphanumeric[Math.floor(Math.random() * alphanumeric.length)];
+    const alpha2 =
+      alphanumeric[Math.floor(Math.random() * alphanumeric.length)];
 
     const bookingId = `${day}${hour}${alpha1}${year}${minute}${alpha2}${month}`;
 
@@ -86,6 +88,12 @@ const Payment = () => {
 
   const handlePaymentComplete = async () => {
     try {
+      const bookingId = generateBookingId();
+
+      bookingDetails.bookingId = bookingId;
+      bookingDetails.totalPrice = totalPrice;
+      console.log("Booking Response:", bookingDetails);
+
       const response = await fetch("http://127.0.0.1:5000/api/booking", {
         method: "POST",
         headers: {
@@ -93,7 +101,6 @@ const Payment = () => {
         },
         body: JSON.stringify({
           bookingDetails,
-          totalPrice,
         }),
       });
 
@@ -102,10 +109,6 @@ const Payment = () => {
       }
 
       const data = await response.json();
-      const bookingId = generateBookingId();
-      // console.log("Booking Response:", data);
-      
-      bookingDetails.bookingId = bookingId;
 
       navigate("/generate-flight-ticket", {
         state: {

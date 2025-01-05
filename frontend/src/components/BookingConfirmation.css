@@ -51,6 +51,7 @@ h1 {
 }
 
 .flight-details-section h2 {
+  color: black;
   text-align: center;
   margin-bottom: 60px;
 }
@@ -83,12 +84,17 @@ h1 {
 }
 
 .flight-info p {
+  color: black;
   margin: 0.5rem 0;
 }
 
 .passenger-form-section {
   padding: 1.5rem;
 }
+.passenger-form-section h3 {
+  color: black;
+}
+
 
 .form-group {
   margin-bottom: 1.5rem;

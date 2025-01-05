@@ -32,13 +32,16 @@
 
 .main-title {
   color: white;
-  font-size: 3rem;
+  font-size: 4rem;
+  margin-top: 1px;
   margin-bottom: 1rem;
   font-weight: bold;
 }
-
+.main-texts{
+  color: white;
+}
 .little-title {
-    color: white;
+  color: white;
 }
 
 .subtitle {
@@ -53,7 +56,7 @@
   justify-content: center;
 }
 
-.nav-button {
+.nav-buttons {
   padding: 12px 30px;
   font-size: 1.1rem;
   border: none;
@@ -66,7 +69,7 @@
   letter-spacing: 1px;
 }
 
-.nav-button:hover {
+.nav-buttons:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -86,7 +89,7 @@
     flex-direction: column;
   }
 
-  .nav-button {
+  .nav-buttons {
     width: 200px;
     margin: 0 auto;
   }

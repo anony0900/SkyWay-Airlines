@@ -76,7 +76,7 @@ const BookingSummary = () => {
         </div>
       </nav>
     <div className="payment-container">
-      <div className="payment-box">
+      <div className="payment-boxes">
         <h2>Payment Details</h2>
         {bookingDetails && (
           <div className="booking-summary">
@@ -99,7 +99,7 @@ const BookingSummary = () => {
               {bookingData.flightDetails.departureTime}
             </p>
             <p>
-              <strong>Class:</strong> {bookingData.classtype}
+              <strong>Class:</strong> {passengerInfo.classtype}
             </p>
             <p>
               <strong>Passenger name:</strong> {passengerInfo.fullname}

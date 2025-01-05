@@ -36,8 +36,11 @@ h4 {
 }
 
 .qr-code-section {
-  margin-top: 10%;
+  margin-top: -50px;
   text-align: center;
+}
+.qr-code-section h4{
+  font-size: 1.5rem;
 }
 
 .qr-code-container {

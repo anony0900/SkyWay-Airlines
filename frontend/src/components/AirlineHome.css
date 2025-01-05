@@ -139,9 +139,13 @@
 }
 
 .footer-section h4 {
-  color: white;
+  color: rgb(254, 254, 254) !important;
   margin-bottom: 10px;
   font-size: 1rem;
+}
+
+.contact{
+  color: white;
 }
 
 .footer-section ul {
@@ -173,6 +177,7 @@
 
 .social-links {
   display: flex;
+  margin-left: 40%;
   gap: 10px;
 }
 

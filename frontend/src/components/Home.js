@@ -11,7 +11,7 @@ const Home = () => {
       <div className="content-wrapper">
         <h1 className="main-title">Welcome to SkyWay Airlines</h1>
 
-        <p>
+        <p className="main-texts">
           Embark on a journey of comfort and luxury with SkyWay Airlines.
           Experience seamless travel across the globe with our world-class
           service
@@ -20,10 +20,10 @@ const Home = () => {
         <h2 className="little-title">Please login or sign up to continue</h2>
 
         <div className="buttons-container">
-          <button className="nav-button" onClick={() => navigate("/login")}>
+          <button className="nav-buttons" onClick={() => navigate("/login")}>
             Login
           </button>
-          <button className="nav-button" onClick={() => navigate("/signup")}>
+          <button className="nav-buttons" onClick={() => navigate("/signup")}>
             Sign Up
           </button>
         </div>

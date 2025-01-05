@@ -11,8 +11,8 @@ const Confirmation = () => {
   const { bookingDetails, totalPrice } = location.state || {};
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log("Booking Details:", bookingDetails);
-  console.log("Price:", totalPrice);
+  // console.log("Booking Details:", bookingDetails);
+  // console.log("Price:", totalPrice);
 
   useEffect(() => {
     const timer = setTimeout(() => {

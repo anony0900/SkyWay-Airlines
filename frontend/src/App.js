@@ -10,6 +10,7 @@ import BookingSummary from "./components/BookingSummary";
 import Payment from "./components/Payment";
 import Confirmation from "./components/Confirmation";
 import ProtectedRoute from "./components/ProtectedRoute";
+import InfoPages from "./components/InfoPages";
 
 function App() {
   return (
@@ -79,6 +80,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Confirmation />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/info"
+          element={
+            <ProtectedRoute>
+              <InfoPages />
             </ProtectedRoute>
           }
         />

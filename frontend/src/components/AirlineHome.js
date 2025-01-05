@@ -1,14 +1,18 @@
 // AirlineHome.js
 import React, { use, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./AirlineHome.css";
 
 const AirlineHome = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const email = location.state?.email;
+
+  console.log("email ", email);
 
   const handleLogout = () => {
     // Add any logout logic here (clearing tokens, etc.)
-    localStorage.removeItem('token');
+    localStorage.clear();
     navigate("/");
   };
 
@@ -16,11 +20,23 @@ const AirlineHome = () => {
     navigate("/bookings");
   };
   const handleBookingHistory = () => {
-    navigate("/booking-history");
+    navigate("/booking-history", {
+      state: { email: email },
+    });
   };
   const handleFlightStatus = () => {
     navigate("/flight-status");
   };
+  const handlePrivacy = () => {
+    navigate("/info", { state: { page: "privacy" } });
+  };
+  const handleTerms = () => {
+    navigate("/info", { state: { page: "terms" } });
+  };
+  const handleAbout = () => {
+    navigate("/info", { state: { page: "about" } });
+  };
+      
 
   return (
     <div className="airline-home">
@@ -100,54 +116,71 @@ const AirlineHome = () => {
       {/* New Footer Section */}
       <footer className="footer">
         <div className="footer-content">
-          <div className="footer-section">
-            <h4>Contact Us</h4>
-            <p>Email: support@skyway.com</p>
-            <p>Phone: +1 (555) 123-4567</p>
+          <div className="footer-sections">
+            <h4 className="contact">Contact Us</h4>
+            <p className="contact">Email: support@skyway.com</p>
+            <p className="contact">Phone: +1 (555) 123-4567</p>
           </div>
           <div className="footer-section">
             <h4>Quick Links</h4>
-            <ul>
-              <li>
-                <a href="#about">About Us</a>
-              </li>
-              <li>
-                <a href="#terms">Terms & Conditions</a>
-              </li>
-              <li>
-                <a href="#privacy">Privacy Policy</a>
-              </li>
-            </ul>
+            <div className="social-links">
+              <ul>
+                <li>
+                  <a onClick={handleAbout} style={{ cursor: "pointer" }}>
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a onClick={handleTerms} style={{ cursor: "pointer" }}>
+                    Terms & Conditions
+                  </a>
+                </li>
+                <li>
+                  <a onClick={handlePrivacy} style={{ cursor: "pointer" }}>
+                  Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="footer-section">
             <h4>Follow Us</h4>
             <div className="social-links">
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Facebook
-              </a>
-              <a
-                href="https://www.x.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter
-              </a>
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagram
-              </a>
+              <ul>
+                <li>
+                  <a
+                    href="https://www.facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.x.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 SkyWay Airlines. All rights reserved.</p>
+          <p className="contact">
+            &copy; 2024 SkyWay Airlines. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>

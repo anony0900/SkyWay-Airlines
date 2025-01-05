@@ -117,11 +117,15 @@ def signup():
 
 @app.route('/api/booking', methods=['POST'])
 def booking():
-    data = request.get_json()
-
+    metadata = request.get_json()
+    if metadata:
+        print(metadata)
+    data = metadata.get("bookingDetails", {})
+    print(data)
     try:
         price = data.get("totalPrice")
         booking_date = data.get("bookingDate")
+        booking_Id = data.get("bookingId")
 
         flight_details = data.get("flightDetails", {})
         airline = flight_details.get("airline")
@@ -139,20 +143,21 @@ def booking():
 
         # Database entry
         booking_data = {
-            "Booking_date": booking_date,
-            "Flight Details": {
+            "Booking_Date": booking_date,
+            "Booking_ID": booking_Id,
+            "Flight_Details": {
                 "Airline": airline,
-                "Flight Number": flight_number,
-                "Arrival Time": arrival_time,
-                "Departure Time": departure_time,
+                "Flight_Number": flight_number,
+                "Arrival_Time": arrival_time,
+                "Departure_Time": departure_time,
                 "origin": origin,
                 "Destination": destination,
             },
             "passengerInfo": {
-                "Full Name": fullname,
+                "Full_Name": fullname,
                 "Phone": phone,
                 "Email": email,
-                "Class Type": passenger_class,
+                "Class_Type": passenger_class,
             },
             "Price": price,
         }
@@ -169,13 +174,35 @@ def booking():
 
     
 
-@app.route('/api/bookinghistory', methods=['GET'])
+@app.route('/api/bookinghistory', methods=['POST'])
 def get_bookings():
     try:
-        bookings = list(collection2.find({}, {'_id': 0}))
-        return jsonify(bookings)
-    except errors.ConnectionFailure:
+        # Extract the email from the request JSON
+        data = request.get_json()
+        email = data.get('email') if data else None
+        
+        if not email:
+            return jsonify({"error": "Email parameter is required"}), 400
+
+        # Query the database for bookings with the provided email
+        bookings = list(collection2.find({"passengerInfo.Email": email}, {"_id": 0}))
+        print("bookings",bookings)
+        if bookings:
+            return jsonify(bookings), 200
+        else:
+            return jsonify({
+                "message": "No bookings found for this email",
+                "data": []
+            }), 200 
+
+    except errors.ConnectionFailure as e:
+        print(f"Database connection error: {str(e)}")
         return jsonify({"error": "Unable to connect to the database"}), 500
+
+    except Exception as e:
+        print(f"Unexpected error: {str(e)}")
+        return jsonify({"error": "Something went wrong"}), 500
+
 
 
 @app.route('/api/payment', methods=['GET'])

@@ -60,6 +60,7 @@ const Bookings = () => {
       const response = await fetch(
         // `https://flight-backend-1fjz.onrender.com/v1/flights?${queryParams}`,
         `https://cors-anywhere.herokuapp.com/https://api.aviationstack.com/v1/flights?${queryParams}`,
+        // `/https://api.aviationstack.com/v1/flights?${queryParams}`,
         {
           method: "GET",
           // mode: "no-cors",
@@ -80,7 +81,7 @@ const Bookings = () => {
 
       // Transform the API response to match your component's expected format
       const transformedFlights = data.data.map((flight) => ({
-        id: flight.flight.iata,
+        id: `${flight.flight.iata}_${flight.departure.scheduled}`,
         airline: flight.airline.name,
         flightNumber: flight.flight.iata,
         departureTime: flight.departure.scheduled,

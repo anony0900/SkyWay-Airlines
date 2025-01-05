@@ -136,7 +136,12 @@ const Login = () => {
           "Success:",
           isLogin ? "Login successful" : "Signup successful"
         );
-        navigate("/airline-home");
+        localStorage.setItem('email', formData.email);
+        navigate("/airline-home",{
+          state: {
+            email:formData.email,
+          },
+        });
       } else {
         setError(data.message || "An error occurred");
         fetchCaptcha();
