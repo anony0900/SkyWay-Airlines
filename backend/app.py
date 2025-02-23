@@ -18,7 +18,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 app.secret_key = ''
-uri = "mongodb+srv://anony:atlas@cluster0.f18iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri = "mongodb+srv:..."
 
 client = MongoClient(uri)
 
