@@ -17,7 +17,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 
-app.secret_key = 'b6836a1669abaf1b5eebade4443489d5'
+app.secret_key = ''
 uri = "mongodb+srv://anony:atlas@cluster0.f18iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 client = MongoClient(uri)
